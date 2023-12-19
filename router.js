@@ -60,17 +60,18 @@ router.get('/delete/:id', (req, res) => {
         if (errorInventario) {
             throw errorInventario;
         } else {
-
             conexion.query(deleteProductoQuery, [id], (errorProductos, resultsProductos) => {
                 if (errorProductos) {
                     throw errorProductos;
                 } else {
+                    // Devolver un objeto JSON indicando que la eliminación se realizó correctamente
                     res.redirect('/');
                 }
             });
-        }z
+        }
     });
 });
+
        
 
 module.exports = router;
